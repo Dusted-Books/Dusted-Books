@@ -37,6 +37,7 @@ out/
 # Editor-specific settings
 .vscode/
 .idea/
+CLAUDE.md
 *.suo
 *.ntvs*
 *.njsproj
