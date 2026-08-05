@@ -44,19 +44,28 @@ const authLimiter = rateLimit({
     legacyHeaders: false,
     message: { message: "Too many attempts, please try again later." },
 });
-app.use("/api/users/login", authLimiter);
-app.use("/api/users/signup", authLimiter);
-
 app.use("/api", require("./routes/authRoute"));
 app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/bookRoutes"));
 app.use("/api", require("./routes/bookRequestRoutes"));
 
+if (process.env.NODE_ENV === "production") {
+    const path = require("path");
+    const distPath = path.join(__dirname, "../client/dusted-books-app/dist");
 
-//test route
-app.get("/", (req, res) => {
-    res.send("API is running...")
-});
+    // Serve the built React app
+    app.use(express.static(distPath));
+
+    // Any non-API route falls through to index.html for React Router
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(distPath, "index.html"));
+    });
+} else {
+    // test route — dev only, since "*" above would otherwise shadow it
+    app.get("/", (req, res) => {
+        res.send("API is running...");
+    });
+}
 
 // Global error handler — keeps stack traces out of responses.
 // Multer errors (e.g. file too large, bad file type) surface as 400s.
