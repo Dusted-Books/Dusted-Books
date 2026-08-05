@@ -84,43 +84,6 @@ function BookOpenIcon({ className }: { className?: string }) {
   );
 }
 
-function ShoppingBagIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-      />
-    </svg>
-  );
-}
-
-function SparklesIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
-      />
-    </svg>
-  );
-}
 
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
@@ -141,86 +104,6 @@ function ArrowRightIcon({ className }: { className?: string }) {
   );
 }
 
-function ShieldCheckIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
-      />
-    </svg>
-  );
-}
-
-function TagIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 6h.008v.008H6V6Z"
-      />
-    </svg>
-  );
-}
-
-function LeafIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 21c-4.97 0-9-4.03-9-9 0-4.632 3.5-8.443 8-8.941V3c5.523 0 10 4.477 10 10h-.059C20.443 17.5 16.632 21 12 21Zm0 0c0-4.97 4.03-9 9-9"
-      />
-    </svg>
-  );
-}
-
-function TruckIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-      />
-    </svg>
-  );
-}
 
 function SunIcon() {
   return (
@@ -262,17 +145,14 @@ function MoonIcon() {
 
 const steps = [
   {
-    icon: BookOpenIcon,
     title: "Browse & Discover",
     desc: "Explore hundreds of pre-loved books across Fiction, Non-Fiction, Science, History, and more.",
   },
   {
-    icon: ShoppingBagIcon,
     title: "Buy or Request",
     desc: "Found what you love? Add to cart. Can't find it? Submit a book request and we'll source it.",
   },
   {
-    icon: SparklesIcon,
     title: "Sell via Contact Us",
     desc: "Have books gathering dust? Contact us via Call/WhatsApp or Email to sell your pre-loved books.",
   },
@@ -292,22 +172,18 @@ const browseCategories = [
 
 const perks = [
   {
-    icon: ShieldCheckIcon,
     title: "Condition Checked",
     desc: "Every book is inspected and honestly graded before it reaches the shelf, so you know exactly what you're getting.",
   },
   {
-    icon: TagIcon,
     title: "Fair Prices",
     desc: "Pre-loved means a fraction of retail. Build your library without emptying your wallet.",
   },
   {
-    icon: LeafIcon,
     title: "Read Sustainably",
     desc: "Every second-hand book you buy keeps paper out of landfills and gives a good story another reader.",
   },
   {
-    icon: TruckIcon,
     title: "Contact to Sell",
     desc: "Want to sell? Reach us directly on Call/WhatsApp (0774965624 / 0783907616) or Email to arrange pickup.",
   },
@@ -431,25 +307,21 @@ export default function Landing() {
       value: totalBooks > 0 ? `${totalBooks}+` : "100s",
       label: "Books in stock",
       hint: "Ready to browse",
-      icon: BookOpenIcon,
     },
     {
       value: String(browseCategories.length),
       label: "Categories",
       hint: "Genres covered",
-      icon: TagIcon,
     },
     {
       value: "100%",
       label: "Condition checked",
       hint: "Honest grading",
-      icon: ShieldCheckIcon,
     },
     {
       value: "Free",
       label: "Contact to Sell",
       hint: "Direct assistance",
-      icon: SparklesIcon,
     },
   ];
 
@@ -628,7 +500,6 @@ export default function Landing() {
         <div className="mx-auto max-w-5xl overflow-hidden rounded-lg border border-amber-900/10 bg-paper-elevated shadow-lg shadow-amber-950/8 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/30">
           <ul className="grid grid-cols-2 md:grid-cols-4">
             {stats.map((stat, index) => {
-              const Icon = stat.icon;
               const isLastColMobile = index % 2 === 1;
               const isLastRowMobile = index >= 2;
               const isLastDesktop = index === stats.length - 1;
@@ -649,9 +520,6 @@ export default function Landing() {
                       : "md:border-r-0",
                   ].join(" ")}
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-amber-50 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 sm:h-10 sm:w-10">
-                    <Icon className="h-[18px] w-[18px]" />
-                  </span>
                   <div className="min-w-0 text-left">
                     <p className="font-serif truncate text-xl font-semibold leading-none text-amber-800 dark:text-amber-300 sm:text-2xl">
                       {stat.value}
@@ -690,7 +558,6 @@ export default function Landing() {
             className="grid gap-px overflow-hidden rounded-lg border border-amber-900/10 bg-amber-900/10 dark:border-gray-700 dark:bg-gray-700 md:grid-cols-3"
           >
             {steps.map((step, i) => {
-              const Icon = step.icon;
               return (
                 <div
                   key={step.title}
@@ -699,9 +566,6 @@ export default function Landing() {
                   <div className="mb-5 flex items-center gap-3">
                     <span className="font-serif text-sm font-medium text-amber-700/50 dark:text-amber-400/40">
                       0{i + 1}
-                    </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-md bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
-                      <Icon className="h-[18px] w-[18px]" />
                     </span>
                   </div>
                   <h3 className="font-serif mb-2 text-lg font-medium text-amber-950 dark:text-amber-50">
@@ -902,15 +766,11 @@ export default function Landing() {
               className="grid gap-px overflow-hidden rounded-lg border border-amber-900/10 bg-amber-900/10 dark:border-gray-700 dark:bg-gray-700 sm:grid-cols-2"
             >
               {perks.map((perk) => {
-                const Icon = perk.icon;
                 return (
                   <div
                     key={perk.title}
                     className="perk-card bg-paper p-5 dark:bg-gray-900 sm:p-6"
                   >
-                    <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
-                      <Icon className="h-[18px] w-[18px]" />
-                    </div>
                     <h3 className="font-serif mb-1.5 text-base font-medium text-amber-950 dark:text-amber-50">
                       {perk.title}
                     </h3>
