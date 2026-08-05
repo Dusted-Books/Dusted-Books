@@ -180,12 +180,12 @@ function AuthPage() {
         .auth-input:-webkit-autofill:focus,
         .auth-input:-webkit-autofill:active,
         .auth-input:-internal-autofill-selected {
-          box-shadow: 0 0 0 1000px #f0e6d6 inset !important;
-          -webkit-box-shadow: 0 0 0 1000px #f0e6d6 inset !important;
-          background-color: #f0e6d6 !important;
-          color: #2a2118 !important;
-          -webkit-text-fill-color: #2a2118 !important;
-          caret-color: #2a2118 !important;
+          box-shadow: 0 0 0 1000px #FEF5F5 inset !important;
+          -webkit-box-shadow: 0 0 0 1000px #FEF5F5 inset !important;
+          background-color: #FEF5F5 !important;
+          color: #2D1A1E !important;
+          -webkit-text-fill-color: #2D1A1E !important;
+          caret-color: #2D1A1E !important;
           transition: background-color 5000s ease-in-out 0s;
         }
 
@@ -197,12 +197,12 @@ function AuthPage() {
         .dark .auth-input:-webkit-autofill:focus,
         .dark .auth-input:-webkit-autofill:active,
         .dark .auth-input:-internal-autofill-selected {
-          box-shadow: 0 0 0 1000px #2f2b26 inset !important;
-          -webkit-box-shadow: 0 0 0 1000px #2f2b26 inset !important;
-          background-color: #2f2b26 !important;
-          color: #f0e6d6 !important;
-          -webkit-text-fill-color: #f0e6d6 !important;
-          caret-color: #f0e6d6 !important;
+          box-shadow: 0 0 0 1000px #2F282A inset !important;
+          -webkit-box-shadow: 0 0 0 1000px #2F282A inset !important;
+          background-color: #2F282A !important;
+          color: #FCE8E8 !important;
+          -webkit-text-fill-color: #FCE8E8 !important;
+          caret-color: #FCE8E8 !important;
         }
       `}</style>
       <section className="bg-paper dark:bg-gray-950 min-h-screen flex items-center justify-center p-4 transition-colors duration-300">
