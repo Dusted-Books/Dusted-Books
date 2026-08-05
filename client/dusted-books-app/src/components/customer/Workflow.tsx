@@ -9,21 +9,8 @@ function Workflow() {
         {/* Step 1 */}
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
           <div className="flex-1">
-            <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-amber-800 dark:bg-amber-700 text-white mb-8 shadow-lg shadow-amber-950/20 dark:shadow-black/40">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
+            <div className="inline-flex items-center justify-center h-14 px-5 rounded-2xl bg-amber-800 dark:bg-amber-700 text-amber-50 mb-8 shadow-lg shadow-amber-950/20 dark:shadow-black/40">
+              <span className="font-cursive text-3xl tracking-wide">Story</span>
             </div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-amber-950 dark:text-amber-50 tracking-tight mb-6 leading-tight">
               Read Again.
@@ -40,22 +27,12 @@ function Workflow() {
               <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-paper-elevated dark:from-gray-800 dark:to-gray-900 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
 
               {/* Abstract decorative elements representing reading */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-paper-muted dark:bg-gray-700 rounded-xl shadow-xl rotate-[-6deg] group-hover:rotate-0 transition-all duration-700 ease-out border border-amber-900/10 dark:border-gray-600"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-paper-elevated dark:bg-gray-800 rounded-xl shadow-2xl rotate-[3deg] group-hover:rotate-[8deg] transition-all duration-700 ease-out border border-amber-900/8 dark:border-gray-600 flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-16 w-16 text-amber-300 dark:text-gray-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-paper-muted dark:bg-gray-700 rounded-xl shadow-xl rotate-[-6deg] group-hover:rotate-0 transition-all duration-700 ease-out border border-amber-900/10 dark:border-gray-600 flex items-center justify-center p-6 text-center">
+                <span className="font-cursive text-3xl text-amber-900/30 dark:text-gray-400 rotate-[-12deg]">Once upon a time...</span>
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-paper-elevated dark:bg-gray-800 rounded-xl shadow-2xl rotate-[3deg] group-hover:rotate-[8deg] transition-all duration-700 ease-out border border-amber-900/8 dark:border-gray-600 flex flex-col items-center justify-center p-6 text-center">
+                <span className="font-cursive text-5xl text-amber-800 dark:text-amber-200 mb-1">Read</span>
+                <span className="font-cursive text-3xl text-amber-600 dark:text-amber-400">Again.</span>
               </div>
             </div>
           </div>

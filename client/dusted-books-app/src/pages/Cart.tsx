@@ -49,7 +49,7 @@ function Cart() {
                       <img
                         src={item.imgUrl || "https://via.placeholder.com/160x220?text=Dusted+Books"}
                         alt={item.title}
-                        className="h-24 w-20 rounded-2xl object-cover"
+                        className="h-24 w-20 object-contain"
                       />
                       <div>
                         <h3 className="text-lg font-bold text-amber-950 dark:text-amber-100">{item.title}</h3>
