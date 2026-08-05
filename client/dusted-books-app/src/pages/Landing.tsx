@@ -67,81 +67,195 @@ type BookItem = {
 // ── Icons ──
 function BookOpenIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+      />
     </svg>
   );
 }
 
 function ShoppingBagIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+      />
     </svg>
   );
 }
 
 function SparklesIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+      />
     </svg>
   );
 }
 
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+      />
     </svg>
   );
 }
 
 function ShieldCheckIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+      />
     </svg>
   );
 }
 
 function TagIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 6h.008v.008H6V6Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 6h.008v.008H6V6Z"
+      />
     </svg>
   );
 }
 
 function LeafIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4.97 0-9-4.03-9-9 0-4.632 3.5-8.443 8-8.941V3c5.523 0 10 4.477 10 10h-.059C20.443 17.5 16.632 21 12 21Zm0 0c0-4.97 4.03-9 9-9" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 21c-4.97 0-9-4.03-9-9 0-4.632 3.5-8.443 8-8.941V3c5.523 0 10 4.477 10 10h-.059C20.443 17.5 16.632 21 12 21Zm0 0c0-4.97 4.03-9 9-9"
+      />
     </svg>
   );
 }
 
 function TruckIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+      />
     </svg>
   );
 }
 
 function SunIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7Z"
+      />
     </svg>
   );
 }
 
 function MoonIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+      />
     </svg>
   );
 }
@@ -216,8 +330,14 @@ export default function Landing() {
     let cancelled = false;
     (async () => {
       try {
-        const data = await apiFetch<BookItem[] | { books?: BookItem[] }>("/books");
-        const list = Array.isArray(data) ? data : Array.isArray(data?.books) ? data.books : [];
+        const data = await apiFetch<BookItem[] | { books?: BookItem[] }>(
+          "/books",
+        );
+        const list = Array.isArray(data)
+          ? data
+          : Array.isArray(data?.books)
+            ? data.books
+            : [];
         if (cancelled) return;
         setTotalBooks(list.length);
         setBooks(list.slice(0, 6));
@@ -339,8 +459,8 @@ export default function Landing() {
       <nav
         className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 ${
           scrolled
-            ? "bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-2xl border-b border-amber-900/10 dark:border-gray-700/50 shadow-md py-2.5"
-            : "bg-gradient-to-b from-shelf-deep/55 to-transparent py-4"
+            ? "bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-2xl border-b border-amber-900/15 dark:border-gray-700/60 shadow-md py-2.5"
+            : "bg-paper/95 dark:bg-gray-900/90 backdrop-blur-md border-b border-amber-900/10 dark:border-gray-800 shadow-sm py-4"
         }`}
       >
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 sm:px-6">
@@ -353,45 +473,40 @@ export default function Landing() {
               alt="DustedBooks logo"
               className="h-10 w-10 object-contain sm:h-11 sm:w-11"
             />
-            <span
-              className={`font-brand bg-clip-text text-transparent bg-gradient-to-r ${
-                scrolled
-                  ? "from-amber-900 to-amber-700 dark:from-amber-400 dark:to-amber-300"
-                  : "from-white to-amber-100"
-              }`}
-            >
+            <span className="font-brand bg-clip-text text-transparent bg-gradient-to-r from-amber-900 to-amber-700 dark:from-amber-400 dark:to-amber-300">
               DustedBooks
             </span>
           </Link>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              to="/browse"
+              className="hidden rounded-md px-3.5 py-2 text-sm font-medium text-amber-900/80 transition-colors hover:bg-amber-900/5 hover:text-amber-950 dark:text-amber-200/80 dark:hover:bg-white/10 dark:hover:text-amber-100 md:inline-flex"
+            >
+              Browse
+            </Link>
+
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
-                scrolled
-                  ? "text-amber-950/70 dark:text-amber-200/70 hover:bg-amber-900/10 dark:hover:bg-white/10"
-                  : "text-white/90 hover:bg-white/15"
-              }`}
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
+              className="flex h-10 w-10 items-center justify-center rounded-full text-amber-950/75 dark:text-amber-200/75 transition-colors hover:bg-amber-900/10 dark:hover:bg-white/10"
             >
               {isDark ? <SunIcon /> : <MoonIcon />}
             </button>
 
             <Link
               to="/signup"
-              className={`hidden rounded-md px-4 py-2 text-sm font-medium transition-colors sm:inline-flex ${
-                scrolled
-                  ? "border border-amber-800/15 text-amber-900 hover:bg-amber-50 dark:border-amber-300/15 dark:text-amber-100 dark:hover:bg-gray-800"
-                  : "border border-white/35 text-white hover:bg-white/10"
-              }`}
+              className="hidden rounded-md border border-amber-900/15 px-4 py-2 text-sm font-medium text-amber-950 transition-colors hover:bg-amber-900/5 dark:border-amber-300/20 dark:text-amber-100 dark:hover:bg-gray-800 sm:inline-flex"
             >
               Sign up
             </Link>
 
             <Link
               to="/login"
-              className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-amber-500 sm:px-5"
+              className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-amber-500 hover:shadow-md hover:shadow-amber-600/20 active:scale-95 sm:px-5"
             >
               Sign in
             </Link>
@@ -438,7 +553,10 @@ export default function Landing() {
         <div className="absolute inset-x-0 bottom-0 z-[2] h-32 bg-gradient-to-t from-shelf-deep/70 to-transparent" />
 
         {/* Soft floating dust motes */}
-        <div className="pointer-events-none absolute inset-0 z-[3] overflow-hidden" aria-hidden="true">
+        <div
+          className="pointer-events-none absolute inset-0 z-[3] overflow-hidden"
+          aria-hidden="true"
+        >
           <span className="absolute left-[12%] top-[28%] h-1 w-1 animate-pulse rounded-full bg-amber-200/40" />
           <span className="absolute left-[78%] top-[22%] h-1.5 w-1.5 animate-pulse rounded-full bg-amber-100/30 [animation-delay:700ms]" />
           <span className="absolute left-[55%] top-[65%] h-1 w-1 animate-pulse rounded-full bg-orange-200/35 [animation-delay:1200ms]" />
@@ -453,11 +571,14 @@ export default function Landing() {
 
           <h1 className="font-serif text-[2.6rem] font-medium leading-[1.12] text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
             Give books a{" "}
-            <em className="not-italic font-medium text-amber-200">second life</em>
+            <em className="not-italic font-medium text-amber-200">
+              second life
+            </em>
           </h1>
 
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/75 sm:mt-6 sm:text-lg">
-            Buy pre-loved titles for less, sell the ones you&apos;ve finished, or request something we don&apos;t have yet.
+            Buy pre-loved titles for less, sell the ones you&apos;ve finished,
+            or request something we don&apos;t have yet.
           </p>
 
           <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:justify-center sm:gap-3">
@@ -478,7 +599,11 @@ export default function Landing() {
           </div>
 
           {/* Slide indicators — second-hand book scenes */}
-          <div className="mt-10 flex items-center gap-2" role="tablist" aria-label="Hero background scenes">
+          <div
+            className="mt-10 flex items-center gap-2"
+            role="tablist"
+            aria-label="Hero background scenes"
+          >
             {HERO_SLIDES.map((slide, index) => (
               <button
                 key={slide.src}
@@ -512,10 +637,16 @@ export default function Landing() {
                   key={stat.label}
                   className={[
                     "flex items-center gap-3 px-4 py-4 sm:gap-3.5 sm:px-5 sm:py-5",
-                    !isLastColMobile ? "border-r border-amber-900/8 dark:border-gray-700/80" : "",
-                    !isLastRowMobile ? "border-b border-amber-900/8 dark:border-gray-700/80" : "",
+                    !isLastColMobile
+                      ? "border-r border-amber-900/8 dark:border-gray-700/80"
+                      : "",
+                    !isLastRowMobile
+                      ? "border-b border-amber-900/8 dark:border-gray-700/80"
+                      : "",
                     "md:border-b-0",
-                    !isLastDesktop ? "md:border-r md:border-amber-900/8 dark:md:border-gray-700/80" : "md:border-r-0",
+                    !isLastDesktop
+                      ? "md:border-r md:border-amber-900/8 dark:md:border-gray-700/80"
+                      : "md:border-r-0",
                   ].join(" ")}
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-amber-50 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 sm:h-10 sm:w-10">
@@ -554,7 +685,10 @@ export default function Landing() {
             </p>
           </div>
 
-          <div ref={stepsRef} className="grid gap-px overflow-hidden rounded-lg border border-amber-900/10 bg-amber-900/10 dark:border-gray-700 dark:bg-gray-700 md:grid-cols-3">
+          <div
+            ref={stepsRef}
+            className="grid gap-px overflow-hidden rounded-lg border border-amber-900/10 bg-amber-900/10 dark:border-gray-700 dark:bg-gray-700 md:grid-cols-3"
+          >
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
@@ -661,7 +795,10 @@ export default function Landing() {
             </div>
           ) : books.length > 0 ? (
             <>
-              <div ref={booksRef} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div
+                ref={booksRef}
+                className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+              >
                 {books.map((book) => (
                   <Link
                     key={book._id}
@@ -748,7 +885,8 @@ export default function Landing() {
                 Books deserve more than one reader
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-amber-900/55 dark:text-amber-200/45">
-                Great stories should keep circulating. Buy with confidence, sell without hassle, and read for less.
+                Great stories should keep circulating. Buy with confidence, sell
+                without hassle, and read for less.
               </p>
               <Link
                 to="/signup"
@@ -759,7 +897,10 @@ export default function Landing() {
               </Link>
             </div>
 
-            <div ref={perksRef} className="grid gap-px overflow-hidden rounded-lg border border-amber-900/10 bg-amber-900/10 dark:border-gray-700 dark:bg-gray-700 sm:grid-cols-2">
+            <div
+              ref={perksRef}
+              className="grid gap-px overflow-hidden rounded-lg border border-amber-900/10 bg-amber-900/10 dark:border-gray-700 dark:bg-gray-700 sm:grid-cols-2"
+            >
               {perks.map((perk) => {
                 const Icon = perk.icon;
                 return (
@@ -794,7 +935,8 @@ export default function Landing() {
             Ready to dust off your bookshelf?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-amber-100/55">
-            Free account. Buy, explore, and request books when you&apos;re ready.
+            Free account. Buy, explore, and request books when you&apos;re
+            ready.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-3">

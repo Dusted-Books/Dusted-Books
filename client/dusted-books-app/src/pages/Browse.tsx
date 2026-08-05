@@ -169,24 +169,31 @@ function Browse() {
       <Nav />
 
       <main className="mx-auto max-w-7xl px-4 pb-24 pt-28 sm:px-6 lg:px-8 lg:pt-32">
-        {/* ── Hero Banner ── */}
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-800 via-shelf to-shelf-deep dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 p-8 text-white shadow-2xl shadow-amber-900/20 dark:shadow-black/40 sm:p-12 lg:p-16 isolate">
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl mix-blend-screen pointer-events-none" />
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-amber-600/10 blur-3xl mix-blend-screen pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="mb-4 inline-flex items-center rounded-full border border-amber-300/20 bg-amber-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-amber-200 backdrop-blur-md">
-                Discover your next favorite read
+        {/* ── Editorial Header ── */}
+        <section className="relative overflow-hidden rounded-2xl border border-amber-900/10 bg-paper-elevated px-6 py-10 dark:border-gray-800 dark:bg-gray-900/60 sm:px-10 sm:py-12">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="mb-2 text-[13px] font-medium tracking-[0.12em] text-amber-700/80 uppercase dark:text-amber-400/80">
+                The collection
               </p>
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-amber-50 to-amber-200">
-                Browse Books
+              <h1 className="font-serif text-3xl font-medium tracking-tight text-amber-950 dark:text-amber-50 sm:text-4xl md:text-5xl">
+                Browse our shelves
               </h1>
-              <p className="mt-4 text-base text-amber-200/70 sm:text-lg max-w-xl leading-relaxed">
-                Explore a curated collection of inspiring stories, practical
-                guides, and timeless classics handpicked for you.
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-amber-900/60 dark:text-amber-200/50 sm:text-base">
+                Every pre-loved book has a history and is honestly condition-checked before it arrives here. Search by title, author, or filter across genres.
               </p>
             </div>
+
+            {!loading && books.length > 0 && (
+              <div className="shrink-0 border-t border-amber-900/10 pt-4 dark:border-gray-800 md:border-t-0 md:pt-0">
+                <p className="font-serif text-2xl font-medium text-amber-900 dark:text-amber-300 sm:text-3xl">
+                  {books.length}
+                </p>
+                <p className="text-xs font-medium text-amber-900/50 dark:text-amber-200/40">
+                  {books.length === 1 ? "Book available" : "Books in stock"}
+                </p>
+              </div>
+            )}
           </div>
         </section>
 
