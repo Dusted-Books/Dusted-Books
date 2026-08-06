@@ -1,13 +1,13 @@
 function Workflow() {
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden">
+    <section className="py-16 sm:py-20 relative overflow-hidden">
       {/* Decorative background blobs */}
       <div className="absolute top-0 right-0 -mr-20 w-72 h-72 rounded-full bg-amber-200/40 dark:bg-gray-700/30 blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 -ml-20 w-96 h-96 rounded-full bg-amber-100/50 dark:bg-gray-700/30 blur-3xl pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-8 max-w-6xl relative z-10">
         {/* Step 1 */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <div className="flex-1">
             <div className="inline-flex items-center justify-center h-14 px-5 rounded-2xl bg-amber-800 dark:bg-amber-700 text-amber-50 mb-8 shadow-lg shadow-amber-950/20 dark:shadow-black/40">
               <span className="font-cursive text-3xl tracking-wide">Story</span>
