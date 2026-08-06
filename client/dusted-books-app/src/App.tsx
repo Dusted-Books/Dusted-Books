@@ -20,9 +20,15 @@ const Cart = lazy(() => import("./pages/Cart"));
 const BookDetails = lazy(() => import("./pages/BookDetails"));
 const MyRequests = lazy(() => import("./pages/CustomerLayout/MyRequests"));
 const AdminDashboard = lazy(() => import("./pages/AdminLayout/Admin"));
-const UserManagement = lazy(() => import("./components/admin/user/UserManagement"));
-const BookManagement = lazy(() => import("./components/admin/book/BookManagement"));
-const UserCreateForm = lazy(() => import("./components/admin/user/UserCreateForm"));
+const UserManagement = lazy(
+  () => import("./components/admin/user/UserManagement"),
+);
+const BookManagement = lazy(
+  () => import("./components/admin/book/BookManagement"),
+);
+const UserCreateForm = lazy(
+  () => import("./components/admin/user/UserCreateForm"),
+);
 const BookUpload = lazy(() => import("./components/admin/book/BookUpload"));
 const RequestManagement = lazy(
   () => import("./components/admin/requests/RequestManagement"),
@@ -103,7 +109,10 @@ function App() {
                     </AdminRoute>
                   }
                 >
-                  <Route index element={<Navigate to="users/create" replace />} />
+                  <Route
+                    index
+                    element={<Navigate to="users/create" replace />}
+                  />
 
                   {/* user-routes */}
                   <Route path="users" element={<UserManagement />}>
