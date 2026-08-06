@@ -81,21 +81,21 @@ function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 max-w-full z-[999] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-[999] transition-all duration-300 ${
         scrolled
-          ? "bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-2xl border-b border-amber-900/10 dark:border-gray-700/50 shadow-md py-3"
-          : "bg-paper/95 dark:bg-gray-900/90 py-5 shadow-sm"
+          ? "bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-amber-900/10 dark:border-gray-800 shadow-sm py-2.5"
+          : "bg-paper/90 dark:bg-gray-950/90 backdrop-blur-md py-4"
       }`}
     >
-      <div className="container flex flex-wrap items-center justify-between mx-auto text-amber-950 dark:text-amber-100 lg:w-[80%] px-6">
+      <div className="mx-auto flex flex-wrap items-center justify-between max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="flex items-center gap-3 mr-4 text-2xl font-bold tracking-wider text-amber-950 dark:text-amber-100 transition-transform hover:scale-105 active:scale-95"
+          className="flex items-center gap-2.5 mr-4 text-2xl font-bold tracking-wider transition-opacity hover:opacity-80"
         >
           <img
             src={logoImage}
             alt="DustedBooks logo"
-            className="h-12 w-12 object-contain"
+            className="h-9 w-9 object-contain"
           />
           <span className="font-brand bg-clip-text text-transparent bg-gradient-to-r from-amber-900 to-amber-700 dark:from-amber-400 dark:to-amber-300">
             DustedBooks
@@ -108,14 +108,14 @@ function Nav() {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-amber-950 dark:text-amber-200 hover:bg-amber-900/10 dark:hover:bg-white/10 transition-colors"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-amber-900 dark:text-amber-200 hover:bg-amber-900/5 dark:hover:bg-white/10 transition-colors"
           >
             {isDark ? <SunIcon /> : <MoonIcon />}
           </button>
 
           <button
             type="button"
-            className="relative h-10 w-10 select-none rounded-full text-center align-middle transition-all hover:bg-amber-900/10 dark:hover:bg-white/10 active:bg-amber-900/20 flex items-center justify-center border border-amber-900/10 dark:border-gray-700 text-amber-950 dark:text-amber-200"
+            className="relative h-10 w-10 select-none rounded-full text-center align-middle transition-colors hover:bg-amber-900/5 dark:hover:bg-white/10 active:bg-amber-900/10 flex items-center justify-center border border-transparent text-amber-900 dark:text-amber-200"
             aria-label="Toggle navigation"
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
@@ -153,20 +153,18 @@ function Nav() {
             <li className="flex items-center">
               <Link
                 to="/"
-                className="group flex items-center gap-2 text-sm font-medium text-amber-950/70 dark:text-amber-200/70 hover:text-amber-950 dark:hover:text-amber-100 transition-colors py-2 relative"
+                className="group flex items-center gap-2 text-[15px] font-medium text-amber-900/70 dark:text-amber-100/70 hover:text-amber-900 dark:hover:text-amber-100 transition-colors py-2"
               >
-                <span>Home</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-950 dark:bg-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                Home
               </Link>
             </li>
 
             <li className="flex items-center">
               <Link
                 to="/browse"
-                className="group flex items-center gap-2 text-sm font-medium text-amber-950/70 dark:text-amber-200/70 hover:text-amber-950 dark:hover:text-amber-100 transition-colors py-2 relative"
+                className="group flex items-center gap-2 text-[15px] font-medium text-amber-900/70 dark:text-amber-100/70 hover:text-amber-900 dark:hover:text-amber-100 transition-colors py-2"
               >
-                <span>Browse</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-950 dark:bg-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                Browse
               </Link>
             </li>
 
@@ -174,10 +172,9 @@ function Nav() {
               <li className="flex items-center">
                 <Link
                   to="/my-requests"
-                  className="group flex items-center gap-2 text-sm font-medium text-amber-950/70 dark:text-amber-200/70 hover:text-amber-950 dark:hover:text-amber-100 transition-colors py-2 relative"
+                  className="group flex items-center gap-2 text-[15px] font-medium text-amber-900/70 dark:text-amber-100/70 hover:text-amber-900 dark:hover:text-amber-100 transition-colors py-2"
                 >
-                  <span>My Requests</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-950 dark:bg-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                  My Requests
                 </Link>
               </li>
             )}
@@ -186,11 +183,11 @@ function Nav() {
               <li className="flex items-center">
                 <Link
                   to="/admin"
-                  className="group flex items-center gap-2 text-sm font-medium text-amber-950/70 dark:text-amber-200/70 hover:text-amber-950 dark:hover:text-amber-100 transition-colors py-2 relative"
+                  className="group flex items-center gap-1.5 text-[15px] font-medium text-amber-900/70 dark:text-amber-100/70 hover:text-amber-900 dark:hover:text-amber-100 transition-colors py-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 transition-transform group-hover:scale-110"
+                    className="h-4 w-4"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -204,7 +201,6 @@ function Nav() {
                     <rect x="14" y="12" width="7" height="9" rx="1" />
                   </svg>
                   Admin
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-950 dark:bg-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
                 </Link>
               </li>
             )}
@@ -212,10 +208,10 @@ function Nav() {
             <li className="flex items-center">
               <Link
                 to="/cart"
-                className={`relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                className={`relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-[15px] font-medium transition-all ${
                   isCartRoute
-                    ? "bg-amber-900/10 text-amber-950 dark:bg-white/10 dark:text-amber-100"
-                    : "text-amber-950/70 hover:bg-amber-900/10 hover:text-amber-950 dark:text-amber-200/70 dark:hover:bg-white/10 dark:hover:text-amber-100"
+                    ? "bg-amber-900/10 text-amber-900 dark:bg-white/10 dark:text-amber-100"
+                    : "text-amber-900/70 hover:bg-amber-900/5 hover:text-amber-900 dark:text-amber-100/70 dark:hover:bg-white/10 dark:hover:text-amber-100"
                 }`}
               >
                 <svg
@@ -234,7 +230,7 @@ function Nav() {
                 </svg>
                 Cart
                 {cartCount > 0 && (
-                  <span className="inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-amber-700 px-2 text-xs font-semibold text-white">
+                  <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-amber-700 px-1.5 text-[11px] font-bold text-white">
                     {cartCount}
                   </span>
                 )}
@@ -249,7 +245,7 @@ function Nav() {
                 aria-label={
                   isDark ? "Switch to light mode" : "Switch to dark mode"
                 }
-                className="flex h-9 w-9 items-center justify-center rounded-full text-amber-950/70 dark:text-amber-200/70 hover:text-amber-950 dark:hover:text-amber-100 hover:bg-amber-900/10 dark:hover:bg-white/10 transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-amber-900/70 dark:text-amber-100/70 hover:text-amber-900 dark:hover:text-amber-100 hover:bg-amber-900/5 dark:hover:bg-white/10 transition-all"
               >
                 {isDark ? <SunIcon /> : <MoonIcon />}
               </button>
@@ -261,35 +257,35 @@ function Nav() {
                 ref={dropdownRef}
               >
                 <button
-                  className="group flex items-center gap-2 cursor-pointer text-sm font-medium text-amber-950/70 dark:text-amber-200/70 hover:text-amber-950 dark:hover:text-amber-100 transition-colors py-2 relative"
+                  className={`group flex items-center gap-2 cursor-pointer text-[15px] font-medium transition-colors py-2 px-3 rounded-full ${
+                    accountDropdownOpen
+                      ? "bg-amber-900/10 text-amber-900 dark:bg-white/10 dark:text-amber-100"
+                      : "text-amber-900/70 hover:bg-amber-900/5 hover:text-amber-900 dark:text-amber-100/70 dark:hover:bg-white/10 dark:hover:text-amber-100"
+                  }`}
                   onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
                   aria-haspopup="true"
                   aria-expanded={accountDropdownOpen}
                 >
-                  <div
-                    className={`p-1.5 rounded-full transition-colors ${accountDropdownOpen ? "bg-amber-900/10 dark:bg-white/10 text-amber-950 dark:text-amber-100" : "bg-transparent"}`}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 transition-transform group-hover:scale-110"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                      />
-                    </svg>
-                  </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                    />
+                  </svg>
                   Account
                 </button>
 
                 <div
                   id="account-dropdown"
-                  className={`w-full lg:absolute lg:right-0 lg:top-[120%] mt-2 lg:w-48 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-paper-elevated/95 dark:bg-gray-800/95 backdrop-blur-xl border border-zinc-200 dark:border-gray-700 z-50 origin-top-right transition-all duration-200 ease-out ${
+                  className={`w-full lg:absolute lg:right-0 lg:top-full lg:mt-3 lg:w-48 rounded-xl shadow-xl shadow-amber-900/5 dark:shadow-black/40 bg-paper-elevated/95 dark:bg-gray-800/95 backdrop-blur-xl border border-amber-900/10 dark:border-gray-700 z-50 origin-top-right transition-all duration-200 ease-out ${
                     accountDropdownOpen
                       ? "scale-100 opacity-100 visible translate-y-0 h-auto"
                       : "scale-95 opacity-0 invisible -translate-y-2 h-0 overflow-hidden"
@@ -299,15 +295,15 @@ function Nav() {
                     <li>
                       <Link
                         to="/profile"
-                        className="flex items-center gap-2 w-full px-5 py-2.5 text-left text-sm text-gray-700 dark:text-gray-200 hover:bg-amber-50 dark:hover:bg-gray-700 hover:text-amber-700 dark:hover:text-amber-300 transition-colors font-medium"
+                        className="flex items-center gap-2 w-full px-5 py-2.5 text-left text-[14px] text-amber-950/80 dark:text-amber-100/80 hover:bg-amber-50 dark:hover:bg-gray-700 hover:text-amber-900 dark:hover:text-amber-100 transition-colors font-medium"
                       >
                         Profile
                       </Link>
                     </li>
-                    <div className="h-[1px] bg-gray-200/50 dark:bg-gray-700 my-1"></div>
+                    <div className="h-[1px] bg-amber-900/5 dark:bg-gray-700 my-1"></div>
                     <li>
                       <button
-                        className="flex items-center gap-2 w-full px-5 py-2.5 text-left text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-300 transition-colors font-medium"
+                        className="flex items-center gap-2 w-full px-5 py-2.5 text-left text-[14px] text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-300 transition-colors font-medium"
                         onClick={logout}
                       >
                         Logout
@@ -320,7 +316,7 @@ function Nav() {
               <li className="flex items-center mt-2 lg:mt-0 lg:ml-2">
                 <Link
                   to="/login"
-                  className="px-6 py-2 bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600 text-white text-sm font-semibold rounded-full transition-all hover:scale-105 shadow-sm"
+                  className="px-6 py-2.5 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-500 text-white text-[14px] font-medium rounded-full transition-all shadow-sm hover:shadow-md"
                 >
                   Log in
                 </Link>
