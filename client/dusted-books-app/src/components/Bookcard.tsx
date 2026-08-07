@@ -64,7 +64,7 @@ function BookCard({ book }: BookCardProps) {
           handleViewDetails();
         }
       }}
-      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-[22px] border border-amber-900/10 bg-paper-elevated p-4 shadow-sm shadow-amber-950/5 transition duration-300 hover:-translate-y-1 hover:border-amber-800/15 hover:shadow-lg hover:shadow-amber-950/8 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/20 dark:hover:shadow-black/40"
+      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-[22px] border border-amber-900/10 bg-paper-elevated p-4 shadow-sm shadow-amber-950/5 transition duration-300 hover:-translate-y-1 hover:border-amber-800/15 hover:shadow-lg hover:shadow-amber-950/8 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/20 dark:hover:shadow-black/40 [content-visibility:auto] [contain-intrinsic-size:auto_460px]"
     >
       <div className="relative mb-4 flex h-64 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50 via-paper-muted to-paper-elevated dark:from-gray-800 dark:via-gray-800 dark:to-gray-700 p-2">
         <img

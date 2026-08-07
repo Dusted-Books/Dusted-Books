@@ -309,7 +309,7 @@ function Browse() {
 
               {/* Dropdown menu */}
               <div
-                className={`absolute right-0 top-full mt-2 w-52 rounded-2xl border border-amber-900/10 dark:border-gray-700 bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-xl shadow-amber-900/10 dark:shadow-black/40 z-50 overflow-hidden origin-top-right transition-all duration-200 ${
+                className={`absolute right-0 top-full mt-2 w-52 rounded-2xl border border-amber-900/10 dark:border-gray-700 bg-paper-elevated/95 dark:bg-gray-900/95 max-md:backdrop-blur-none backdrop-blur-xl shadow-xl shadow-amber-900/10 dark:shadow-black/40 z-50 overflow-hidden origin-top-right transition-all duration-200 ${
                   sortOpen
                     ? "scale-100 opacity-100 translate-y-0"
                     : "scale-95 opacity-0 pointer-events-none -translate-y-2"

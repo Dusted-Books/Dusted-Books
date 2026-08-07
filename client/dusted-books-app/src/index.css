@@ -112,7 +112,7 @@ html, body, #root {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -193,7 +193,8 @@ h1, h2, h3 {
 .hero-kb-5 {
   will-change: transform;
   backface-visibility: hidden;
-  animation-duration: 6.9s;
+  /* Match HERO_SLIDE_MS (4500) + a little overrun so zoom never freezes mid-slide */
+  animation-duration: 5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
