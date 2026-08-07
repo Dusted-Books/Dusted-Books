@@ -7,12 +7,16 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-import HeroImgSpines from "../../assets/hero-imgs/hero-img2.jpg";
-import HeroImgShelves from "../../assets/hero-imgs/hero-shelves.jpg";
-import HeroImgStack from "../../assets/hero-imgs/hero-stack.jpg";
-import HeroImgOpen from "../../assets/hero-imgs/hero-open.jpg";
-import HeroImgBrowse from "../../assets/hero-imgs/hero-browse.jpg";
-import HeroImgReading from "../../assets/hero-imgs/hero-reading.jpg";
+import HeroImgSpines from "../../assets/hero-imgs-optimized/hero-img2.webp";
+import HeroImgShelves from "../../assets/hero-imgs-optimized/hero-shelves.webp";
+import HeroImgStack from "../../assets/hero-imgs-optimized/hero-stack.webp";
+import HeroImgOpen from "../../assets/hero-imgs-optimized/hero-open.webp";
+import HeroImgBrowse from "../../assets/hero-imgs-optimized/hero-browse.webp";
+import HeroImgReading from "../../assets/hero-imgs-optimized/hero-reading.webp";
+import {
+  usePrefersReducedMotion,
+  useIsMobile,
+} from "../../hooks/useReducedEffects";
 import gsap from "gsap";
 
 /**
@@ -60,7 +64,7 @@ const HERO_SLIDES = [
 ] as const;
 
 const HERO_SLIDE_MS = 6500;
-const HERO_FADE_MS = 1200;
+const HERO_FADE_MS = 1400;
 const SLIDE_COUNT = HERO_SLIDES.length;
 
 const CONTACT_PHONES = [
@@ -101,41 +105,44 @@ function ChevronDownIcon({ className }: { className?: string }) {
       stroke="currentColor"
       aria-hidden="true"
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+      />
     </svg>
   );
-}
-
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = () => setReduced(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-
-  return reduced;
 }
 
 function Hero() {
   const [heroSlide, setHeroSlide] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [tabHidden, setTabHidden] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  /** Once a slide is requested, keep its layer mounted for smooth revisits. */
-  const [mountedSlides, setMountedSlides] = useState(() => new Set([0, 1]));
-  /** Flip after paint so transform transitions from scale(1) → kenBurns (incl. first slide). */
-  const [kenBurnsOn, setKenBurnsOn] = useState(false);
-  const textRef = useRef<HTMLDivElement>(null);
-  const timerEpochRef = useRef(0);
   const [timerEpoch, setTimerEpoch] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
+  // Pause flags live in refs so the interval stays mounted and always loops.
+  const pausedRef = useRef(false);
+  const tabHiddenRef = useRef(false);
+  const modalOpenRef = useRef(false);
   const prefersReducedMotion = usePrefersReducedMotion();
-  const autoplay = !prefersReducedMotion && !paused && !tabHidden && !isContactModalOpen;
+  const isMobile = useIsMobile();
+  // Fancy extras only — slide autoplay is independent and always runs.
+  const heavyEffects = !isMobile && !prefersReducedMotion;
+  const motionOk = !prefersReducedMotion;
+  const autoplayActive = !paused && !isContactModalOpen;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
+
+  useEffect(() => {
+    modalOpenRef.current = isContactModalOpen;
+  }, [isContactModalOpen]);
 
   useEffect(() => {
     if (!isContactModalOpen) return;
@@ -154,56 +161,40 @@ function Hero() {
   }, [isContactModalOpen]);
 
   const goToSlide = useCallback((index: number) => {
-    setKenBurnsOn(false);
-    setHeroSlide(index);
-    timerEpochRef.current += 1;
-    setTimerEpoch(timerEpochRef.current);
+    setHeroSlide(((index % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT);
+    setTimerEpoch((n) => n + 1);
   }, []);
 
-  // Progressive mount: active + next only (keeps already-seen slides warm)
+  // Pause only while the tab is hidden (interval itself keeps running)
   useEffect(() => {
-    const next = (heroSlide + 1) % SLIDE_COUNT;
-    setMountedSlides((prev) => {
-      if (prev.has(heroSlide) && prev.has(next)) return prev;
-      const updated = new Set(prev);
-      updated.add(heroSlide);
-      updated.add(next);
-      return updated;
-    });
-  }, [heroSlide]);
-
-  // After each slide is at scale(1), enable Ken Burns so the CSS transition runs
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      setKenBurnsOn(false);
-      return;
-    }
-    const id = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => setKenBurnsOn(true));
-    });
-    return () => window.cancelAnimationFrame(id);
-  }, [heroSlide, prefersReducedMotion]);
-
-  // Pause autoplay when the tab is in the background
-  useEffect(() => {
-    const onVisibility = () => setTabHidden(document.hidden);
+    const onVisibility = () => {
+      tabHiddenRef.current = document.hidden;
+    };
+    tabHiddenRef.current = document.hidden;
     document.addEventListener("visibilitychange", onVisibility);
     return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
 
-  // Slideshow rotation — restarts cleanly after manual selection
+  // Always-on loop: 0 → 1 → … → last → 0 → …
+  // Resets timer when heroSlide changes (e.g. from manual dot click)
   useEffect(() => {
-    if (!autoplay) return;
-    const id = window.setInterval(() => {
-      setKenBurnsOn(false);
+    let id: number;
+    const tick = () => {
+      if (pausedRef.current || tabHiddenRef.current || modalOpenRef.current) {
+        // If paused, wait 1 second and check again
+        id = window.setTimeout(tick, 1000);
+        return;
+      }
       setHeroSlide((prev) => (prev + 1) % SLIDE_COUNT);
-    }, HERO_SLIDE_MS);
-    return () => window.clearInterval(id);
-  }, [autoplay, timerEpoch]);
+      setTimerEpoch((n) => n + 1);
+    };
+    id = window.setTimeout(tick, HERO_SLIDE_MS);
+    return () => window.clearTimeout(id);
+  }, [heroSlide]);
 
-  // Entrance animation (skipped when user prefers reduced motion)
+  // Entrance animation (skipped on mobile / reduced motion)
   useEffect(() => {
-    if (prefersReducedMotion || !textRef.current) return;
+    if (!heavyEffects || !textRef.current) return;
 
     const ctx = gsap.context(() => {
       gsap.from(textRef.current!.children, {
@@ -217,7 +208,7 @@ function Hero() {
     }, textRef);
 
     return () => ctx.revert();
-  }, [prefersReducedMotion]);
+  }, [heavyEffects]);
 
   const activeSlide = HERO_SLIDES[heroSlide];
   const progressStyle = {
@@ -230,45 +221,29 @@ function Hero() {
       aria-roledescription="carousel"
       aria-label="Featured book scenes"
     >
-      {/* Slideshow + Ken Burns — same transform transition as Landing */}
+      {/* All slides always mounted — opacity crossfade + optional Ken Burns */}
       <div className="absolute inset-0" aria-hidden="true">
         {HERO_SLIDES.map((slide, index) => {
-          if (!mountedSlides.has(index)) return null;
-
           const isActive = index === heroSlide;
           const isFirst = index === 0;
-          // Same pattern as Landing: scale(1) → kenBurns over the slide duration
-          const motionOn = isActive && kenBurnsOn && !prefersReducedMotion;
 
           return (
             <div
               key={slide.src}
-              className="absolute inset-0 transition-opacity ease-in-out"
+              className="absolute inset-0 transition-opacity duration-[1400ms] ease-in-out"
               style={{
                 opacity: isActive ? 1 : 0,
                 zIndex: isActive ? 1 : 0,
-                transitionDuration: prefersReducedMotion ? "0ms" : `${HERO_FADE_MS}ms`,
-                pointerEvents: "none",
               }}
             >
-              {/* Prefetch via hidden img so progressive loads still hit the cache */}
-              <img
-                src={slide.src}
-                alt=""
-                className="sr-only"
-                loading={isFirst ? "eager" : "lazy"}
-                decoding={isFirst ? "sync" : "async"}
-                fetchPriority={isFirst ? "high" : "low"}
-                draggable={false}
-              />
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
                 style={{
                   backgroundImage: `url(${slide.src})`,
-                  transform: motionOn ? slide.kenBurns : "scale(1)",
-                  transition: motionOn
+                  transform: isActive && isMounted ? slide.kenBurns : "scale(1)",
+                  transition: isActive
                     ? `transform ${HERO_SLIDE_MS + 400}ms ease-out`
-                    : "transform 0ms",
+                    : `transform 0ms 1400ms`,
                 }}
               />
             </div>
@@ -281,8 +256,8 @@ function Hero() {
       <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-tr from-amber-950/30 via-transparent to-orange-950/20" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-40 bg-gradient-to-t from-shelf-deep/80 to-transparent" />
 
-      {/* Soft dust motes — disabled under reduced motion */}
-      {!prefersReducedMotion && (
+      {/* Soft dust motes — disabled on mobile / reduced motion */}
+      {heavyEffects && (
         <div
           className="pointer-events-none absolute inset-0 z-[3] overflow-hidden motion-reduce:hidden"
           aria-hidden="true"
@@ -317,12 +292,12 @@ function Hero() {
         </p>
 
         <h1 className="font-serif text-balance text-[2.5rem] font-medium leading-[1.12] text-white sm:text-5xl md:text-6xl lg:text-[4rem]">
-          Your next story is{" "}
-          <span className="text-amber-200">waiting</span>
+          Your next story is <span className="text-amber-200">waiting</span>
         </h1>
 
         <p className="mt-5 max-w-xl text-pretty text-[15px] leading-relaxed text-white/75 sm:mt-6 sm:text-lg">
-          Browse pre-loved books, request titles we don&apos;t stock yet, or sell the ones you&apos;ve finished.
+          Browse pre-loved books, request titles we don&apos;t stock yet, or
+          sell the ones you&apos;ve finished.
         </p>
 
         <div className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-3">
@@ -384,13 +359,13 @@ function Hero() {
                     : "w-1.5 bg-white/35 hover:bg-white/65"
                 }`}
               >
-                {isActive && autoplay && (
+                {isActive && autoplayActive && (
                   <span
                     key={`${index}-${timerEpoch}`}
                     className="hero-progress-fill absolute inset-y-0 left-0 w-full rounded-full bg-amber-400 shadow-sm shadow-amber-500/40"
                   />
                 )}
-                {isActive && !autoplay && (
+                {isActive && !autoplayActive && (
                   <span className="absolute inset-y-0 left-0 w-full rounded-full bg-amber-400" />
                 )}
               </button>

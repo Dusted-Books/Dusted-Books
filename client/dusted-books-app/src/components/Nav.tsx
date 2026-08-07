@@ -55,6 +55,7 @@ function Nav() {
   const location = useLocation();
   const dropdownRef = useRef<HTMLLIElement>(null);
   const isCartRoute = location.pathname === "/cart";
+  const isHomeRoute = location.pathname === "/" || location.pathname === "/home";
 
   // Detect scroll to add background shadow/opacity
   useEffect(() => {
@@ -63,7 +64,7 @@ function Nav() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomeRoute]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -84,6 +85,8 @@ function Nav() {
       className={`fixed top-0 left-0 right-0 w-full z-[999] transition-all duration-300 ${
         scrolled
           ? "bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-amber-900/10 dark:border-gray-800 shadow-sm py-2.5"
+          : isHomeRoute
+          ? "bg-paper/20 dark:bg-gray-950/20 backdrop-blur-sm py-4 dark"
           : "bg-paper/90 dark:bg-gray-950/90 backdrop-blur-md py-4"
       }`}
     >

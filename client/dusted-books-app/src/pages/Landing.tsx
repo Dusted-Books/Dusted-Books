@@ -4,12 +4,12 @@ import { useTheme } from "../context/themeContext";
 import { apiFetch } from "../service/apiClient";
 import Footer from "../components/Footer";
 import logoImage from "../assets/db logo.png";
-import HeroImgSpines from "../assets/hero-imgs/hero-img2.jpg";
-import HeroImgShelves from "../assets/hero-imgs/hero-shelves.jpg";
-import HeroImgStack from "../assets/hero-imgs/hero-stack.jpg";
-import HeroImgOpen from "../assets/hero-imgs/hero-open.jpg";
-import HeroImgBrowse from "../assets/hero-imgs/hero-browse.jpg";
-import HeroImgReading from "../assets/hero-imgs/hero-reading.jpg";
+import HeroImgSpines from "../assets/hero-imgs-optimized/hero-img2.webp";
+import HeroImgShelves from "../assets/hero-imgs-optimized/hero-shelves.webp";
+import HeroImgStack from "../assets/hero-imgs-optimized/hero-stack.webp";
+import HeroImgOpen from "../assets/hero-imgs-optimized/hero-open.webp";
+import HeroImgBrowse from "../assets/hero-imgs-optimized/hero-browse.webp";
+import HeroImgReading from "../assets/hero-imgs-optimized/hero-reading.webp";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -196,6 +196,7 @@ export default function Landing() {
   const [totalBooks, setTotalBooks] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
   const categoriesRef = useRef<HTMLDivElement>(null);
@@ -231,16 +232,17 @@ export default function Landing() {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    setIsMounted(true); // Trigger initial hero slide animation
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Rotate second-hand book hero backgrounds
   useEffect(() => {
-    const id = window.setInterval(() => {
+    const id = window.setTimeout(() => {
       setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, HERO_SLIDE_MS);
-    return () => window.clearInterval(id);
-  }, []);
+    return () => window.clearTimeout(id);
+  }, [heroSlide]);
 
   // Hero entrance — run once; do not re-run when books load
   useEffect(() => {
@@ -329,11 +331,12 @@ export default function Landing() {
     <div className="min-h-screen bg-paper dark:bg-gray-950 text-amber-950 dark:text-amber-100 font-sans selection:bg-amber-900 selection:text-white overflow-x-hidden">
       {/* ── Navbar ── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 ${
+        className={`fixed top-0 left-0 z-[999] transition-all duration-300 ${
           scrolled
             ? "bg-paper-elevated/95 dark:bg-gray-900/95 backdrop-blur-2xl border-b border-amber-900/15 dark:border-gray-700/60 shadow-md py-2.5"
-            : "bg-paper/95 dark:bg-gray-900/90 backdrop-blur-md border-b border-amber-900/10 dark:border-gray-800 shadow-sm py-4"
+            : "bg-paper/20 dark:bg-gray-900/20 backdrop-blur-sm border-b-0 shadow-none py-4 dark"
         }`}
+        style={{ right: "var(--scrollbar-width, 0px)" }}
       >
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 sm:px-6">
           <Link
@@ -408,10 +411,10 @@ export default function Landing() {
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
                   style={{
                     backgroundImage: `url(${slide.src})`,
-                    transform: isActive ? slide.kenBurns : "scale(1)",
+                    transform: isActive && isMounted ? slide.kenBurns : "scale(1)",
                     transition: isActive
                       ? `transform ${HERO_SLIDE_MS + 400}ms ease-out`
-                      : "transform 0ms",
+                      : "transform 0ms 1400ms",
                   }}
                 />
               </div>
