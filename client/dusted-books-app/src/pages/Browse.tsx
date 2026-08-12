@@ -500,10 +500,10 @@ function Browse() {
 
         {/* ── Search Bar & Controls Row ── */}
         <section className="mt-8 space-y-4">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="flex flex-row gap-2 sm:gap-3 items-center w-full">
             {/* Search Input Box */}
             <div
-              className={`group relative flex flex-1 items-center gap-3 rounded-2xl border bg-paper-elevated dark:bg-gray-900 px-4 py-1 shadow-sm transition-all duration-300 ${
+              className={`group relative flex flex-1 items-center gap-2 sm:gap-3 rounded-2xl border bg-paper-elevated dark:bg-gray-900 px-3 sm:px-4 py-0.5 sm:py-1 shadow-sm transition-all duration-300 ${
                 searchFocused
                   ? "border-amber-500/80 dark:border-amber-500/60 shadow-lg shadow-amber-500/10 ring-4 ring-amber-500/10"
                   : "border-amber-900/15 dark:border-gray-700 hover:border-amber-900/30 dark:hover:border-gray-600 hover:shadow-md"
@@ -524,8 +524,8 @@ function Browse() {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onFocus={() => setSearchFocused(true)}
                 onBlur={() => setSearchFocused(false)}
-                placeholder="Search by title, author, topic, or keyword…"
-                className="flex-1 bg-transparent py-3 text-sm text-amber-950 dark:text-amber-100 placeholder:text-amber-900/40 dark:placeholder:text-gray-500 focus:outline-none sm:text-base"
+                placeholder="Search books..."
+                className="flex-1 bg-transparent py-2.5 sm:py-3 text-sm text-amber-950 dark:text-amber-100 placeholder:text-amber-900/40 dark:placeholder:text-gray-500 focus:outline-none sm:text-base w-full min-w-0"
               />
 
               {searchTerm && (
@@ -554,16 +554,16 @@ function Browse() {
               <button
                 type="button"
                 onClick={() => setSortOpen((o) => !o)}
-                className={`inline-flex w-full sm:w-auto items-center justify-between sm:justify-start gap-2.5 rounded-2xl border px-4 py-3 text-sm font-semibold transition-all duration-200 ${
+                className={`inline-flex w-auto items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 rounded-2xl border px-3 sm:px-4 py-2.5 sm:py-3 text-sm font-semibold transition-all duration-200 ${
                   sortOpen
                     ? "border-amber-600/70 dark:border-amber-500/70 bg-amber-50 dark:bg-gray-800 text-amber-900 dark:text-amber-100 shadow-md ring-2 ring-amber-500/15"
                     : "border-amber-900/15 dark:border-gray-700 bg-paper-elevated dark:bg-gray-900 text-amber-900 dark:text-amber-200 hover:border-amber-500/40 hover:bg-amber-50/50 dark:hover:bg-gray-800"
                 }`}
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <SortIcon className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                  <span className="text-xs text-amber-900/50 dark:text-gray-400 font-normal">Sort:</span>
-                  <span>{activeSortLabel}</span>
+                  <span className="hidden sm:inline text-xs text-amber-900/50 dark:text-gray-400 font-normal">Sort:</span>
+                  <span className="text-xs sm:text-sm whitespace-nowrap">{activeSortLabel}</span>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -624,7 +624,7 @@ function Browse() {
           </div>
 
           {/* ── Redesigned Category Section ── */}
-          <div className="rounded-2xl border border-amber-900/10 bg-paper-elevated p-3 dark:border-gray-800 dark:bg-gray-900/80 shadow-xs">
+          <div className="rounded-2xl border border-amber-900/10 bg-paper-elevated p-2 sm:p-3 dark:border-gray-800 dark:bg-gray-900/80 shadow-xs">
             <div className="flex items-center gap-2">
               {/* "All Genres" Modal Trigger Button */}
               <button
