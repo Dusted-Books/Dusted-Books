@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import logoImage from "../assets/db logo.png";
 
-const browseCategories = ["Fiction", "Non-Fiction", "Mystery", "Self Help"];
+const browseCategories = ["Fiction", "Non-Fiction", "Mystery", "Self Help", "Action & Adventure", "Science Fiction & Fantasy"];
 
 const contactPhones = [
   { display: "077 496 5624", tel: "0774965624", wa: "94774965624" },

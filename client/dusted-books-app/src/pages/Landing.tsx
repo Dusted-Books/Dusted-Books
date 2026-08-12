@@ -84,7 +84,6 @@ function BookOpenIcon({ className }: { className?: string }) {
   );
 }
 
-
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -103,7 +102,6 @@ function ArrowRightIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
 
 function SunIcon() {
   return (
@@ -168,6 +166,25 @@ const browseCategories = [
   "History",
   "Biography",
   "Kids",
+  "Action & Adventure",
+  "Science Fiction & Fantasy",
+  "Thriller & Suspense",
+  "Historical Fiction",
+  "Horror",
+  "Literary Fiction",
+  "Graphic Novels & Comics",
+  "Humor & Satire",
+  "Poetry",
+  "Business & Economics",
+  "Cookbooks, Food & Wine",
+  "Art & Photography",
+  "Travel & Adventure",
+  "Religion & Spirituality",
+  "True Crime",
+  "Crafts, Hobbies & Home",
+  "Philosophy & Psychology",
+  "Health & Fitness",
+  "Children's Books",
 ] as const;
 
 const perks = [
@@ -197,6 +214,7 @@ export default function Landing() {
   const [scrolled, setScrolled] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
   const categoriesRef = useRef<HTMLDivElement>(null);
@@ -338,53 +356,109 @@ export default function Landing() {
         }`}
         style={{ right: "var(--scrollbar-width, 0px)" }}
       >
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 sm:px-6">
-          <Link
-            to="/"
-            className="flex items-center gap-2.5 text-xl font-bold tracking-wider transition-transform hover:scale-[1.02] active:scale-95 sm:text-2xl"
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+          <div className="flex w-full items-center justify-between">
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-xl font-bold tracking-wider transition-transform hover:scale-[1.02] active:scale-95 sm:gap-2.5 sm:text-2xl"
+            >
+              <img
+                src={logoImage}
+                alt="DustedBooks logo"
+                className="h-9 w-9 object-contain sm:h-11 sm:w-11"
+              />
+              <span className="font-brand bg-clip-text text-transparent bg-gradient-to-r from-amber-900 to-amber-700 dark:from-amber-400 dark:to-amber-300">
+                DustedBooks
+              </span>
+            </Link>
+
+            <div className="flex items-center gap-1 sm:gap-3">
+              <Link
+                to="/browse"
+                className="hidden rounded-md px-3.5 py-2 text-sm font-medium text-amber-900/80 transition-colors hover:bg-amber-900/5 hover:text-amber-950 dark:text-amber-200/80 dark:hover:bg-white/10 dark:hover:text-amber-100 md:inline-flex"
+              >
+                Browse
+              </Link>
+
+              <button
+                type="button"
+                onClick={toggleTheme}
+                aria-label={
+                  isDark ? "Switch to light mode" : "Switch to dark mode"
+                }
+                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full text-amber-950/75 dark:text-amber-200/75 transition-colors hover:bg-amber-900/10 dark:hover:bg-white/10"
+              >
+                {isDark ? <SunIcon /> : <MoonIcon />}
+              </button>
+
+              <Link
+                to="/signup"
+                className="hidden rounded-md border border-amber-900/15 px-4 py-2 text-sm font-medium text-amber-950 transition-colors hover:bg-amber-900/5 dark:border-amber-300/20 dark:text-amber-100 dark:hover:bg-gray-800 sm:inline-flex"
+              >
+                Sign up
+              </Link>
+
+              <Link
+                to="/login"
+                className="rounded-md bg-amber-600 px-3 py-1.5 sm:px-5 sm:py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-amber-500 hover:shadow-md hover:shadow-amber-600/20 active:scale-95"
+              >
+                Sign in
+              </Link>
+
+              <button
+                type="button"
+                className="md:hidden relative h-9 w-9 sm:h-10 sm:w-10 select-none rounded-full text-center align-middle transition-colors hover:bg-amber-900/5 dark:hover:bg-white/10 active:bg-amber-900/10 flex items-center justify-center border border-transparent text-amber-950/75 dark:text-amber-200/75"
+                aria-label="Toggle navigation"
+                aria-expanded={isNavOpen}
+                aria-controls="mobile-landing-nav"
+                onClick={() => setIsNavOpen((prev) => !prev)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d={
+                      isNavOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="mobile-landing-nav"
+            className={`w-full overflow-hidden md:hidden transition-all duration-300 ease-in-out ${
+              isNavOpen ? "max-h-64 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"
+            }`}
+            aria-hidden={!isNavOpen}
           >
-            <img
-              src={logoImage}
-              alt="DustedBooks logo"
-              className="h-10 w-10 object-contain sm:h-11 sm:w-11"
-            />
-            <span className="font-brand bg-clip-text text-transparent bg-gradient-to-r from-amber-900 to-amber-700 dark:from-amber-400 dark:to-amber-300">
-              DustedBooks
-            </span>
-          </Link>
-
-          <div className="flex items-center gap-2 sm:gap-3">
-            <Link
-              to="/browse"
-              className="hidden rounded-md px-3.5 py-2 text-sm font-medium text-amber-900/80 transition-colors hover:bg-amber-900/5 hover:text-amber-950 dark:text-amber-200/80 dark:hover:bg-white/10 dark:hover:text-amber-100 md:inline-flex"
-            >
-              Browse
-            </Link>
-
-            <button
-              type="button"
-              onClick={toggleTheme}
-              aria-label={
-                isDark ? "Switch to light mode" : "Switch to dark mode"
-              }
-              className="flex h-10 w-10 items-center justify-center rounded-full text-amber-950/75 dark:text-amber-200/75 transition-colors hover:bg-amber-900/10 dark:hover:bg-white/10"
-            >
-              {isDark ? <SunIcon /> : <MoonIcon />}
-            </button>
-
-            <Link
-              to="/signup"
-              className="hidden rounded-md border border-amber-900/15 px-4 py-2 text-sm font-medium text-amber-950 transition-colors hover:bg-amber-900/5 dark:border-amber-300/20 dark:text-amber-100 dark:hover:bg-gray-800 sm:inline-flex"
-            >
-              Sign up
-            </Link>
-
-            <Link
-              to="/login"
-              className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-amber-500 hover:shadow-md hover:shadow-amber-600/20 active:scale-95 sm:px-5"
-            >
-              Sign in
-            </Link>
+            <ul className="flex flex-col gap-2 pb-3">
+              <li>
+                <Link
+                  to="/browse"
+                  className="block rounded-md px-4 py-2.5 text-sm font-medium text-amber-900/80 transition-colors hover:bg-amber-900/5 hover:text-amber-950 dark:text-amber-200/80 dark:hover:bg-white/10 dark:hover:text-amber-100"
+                >
+                  Browse
+                </Link>
+              </li>
+              <li className="sm:hidden">
+                <Link
+                  to="/signup"
+                  className="block rounded-md px-4 py-2.5 text-sm font-medium text-amber-900/80 transition-colors hover:bg-amber-900/5 hover:text-amber-950 dark:text-amber-200/80 dark:hover:bg-white/10 dark:hover:text-amber-100"
+                >
+                  Sign up
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -411,7 +485,8 @@ export default function Landing() {
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
                   style={{
                     backgroundImage: `url(${slide.src})`,
-                    transform: isActive && isMounted ? slide.kenBurns : "scale(1)",
+                    transform:
+                      isActive && isMounted ? slide.kenBurns : "scale(1)",
                     transition: isActive
                       ? `transform ${HERO_SLIDE_MS + 400}ms ease-out`
                       : "transform 0ms 1400ms",

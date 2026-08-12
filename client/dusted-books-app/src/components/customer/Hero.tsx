@@ -64,7 +64,6 @@ const HERO_SLIDES = [
 ] as const;
 
 const HERO_SLIDE_MS = 6500;
-const HERO_FADE_MS = 1400;
 const SLIDE_COUNT = HERO_SLIDES.length;
 
 const CONTACT_PHONES = [
@@ -129,7 +128,6 @@ function Hero() {
   const isMobile = useIsMobile();
   // Fancy extras only — slide autoplay is independent and always runs.
   const heavyEffects = !isMobile && !prefersReducedMotion;
-  const motionOk = !prefersReducedMotion;
   const autoplayActive = !paused && !isContactModalOpen;
 
   useEffect(() => {
@@ -225,7 +223,6 @@ function Hero() {
       <div className="absolute inset-0" aria-hidden="true">
         {HERO_SLIDES.map((slide, index) => {
           const isActive = index === heroSlide;
-          const isFirst = index === 0;
 
           return (
             <div

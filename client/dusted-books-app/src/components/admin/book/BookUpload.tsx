@@ -140,7 +140,7 @@ export default function BookUpload() {
             <label className="text-black/70 dark:text-gray-300" htmlFor="category">
               Category
             </label>
-            <div className="mt-2 grid gap-2 rounded border border-gray-300/70 dark:border-gray-600 bg-white dark:bg-zinc-800 p-3">
+            <div className="mt-2 grid gap-2 sm:grid-cols-2 rounded border border-gray-300/70 dark:border-gray-600 bg-white dark:bg-zinc-800 p-3 max-h-72 overflow-y-auto">
               {[
                 "Fiction",
                 "Non-Fiction",
@@ -150,6 +150,25 @@ export default function BookUpload() {
                 "Science",
                 "History",
                 "Biography",
+                "Action & Adventure",
+                "Science Fiction & Fantasy",
+                "Thriller & Suspense",
+                "Historical Fiction",
+                "Horror",
+                "Literary Fiction",
+                "Graphic Novels & Comics",
+                "Humor & Satire",
+                "Poetry",
+                "Business & Economics",
+                "Cookbooks, Food & Wine",
+                "Art & Photography",
+                "Travel & Adventure",
+                "Religion & Spirituality",
+                "True Crime",
+                "Crafts, Hobbies & Home",
+                "Philosophy & Psychology",
+                "Health & Fitness",
+                "Children's Books",
               ].map((option) => (
                 <label key={option} className="inline-flex items-center gap-3 rounded-md border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-zinc-700 px-3 py-2 text-sm text-slate-700 dark:text-gray-300 transition-shadow hover:border-indigo-300 dark:hover:border-indigo-400 hover:shadow-sm">
                   <input
