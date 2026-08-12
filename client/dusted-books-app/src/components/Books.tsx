@@ -15,6 +15,27 @@ const Books = () => {
   const navigate = useNavigate()
   const [books, setBooks] = useState<BookItem[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const [itemsToShow, setItemsToShow] = useState(3)
+
+  useEffect(() => {
+    let rafId = 0
+    const handleResize = () => {
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        if (window.innerWidth < 640) setItemsToShow(1)
+        else if (window.innerWidth < 1024) setItemsToShow(2)
+        else setItemsToShow(3)
+      })
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize, { passive: true })
+    return () => {
+      cancelAnimationFrame(rafId)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -34,22 +55,28 @@ const Books = () => {
   }, [])
 
   useEffect(() => {
-    if (books.length === 0) return
+    if (books.length === 0 || isPaused) return
 
     const timer = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % books.length)
     }, 3500)
 
-    setActiveIndex(0)
     return () => window.clearInterval(timer)
-  }, [books.length])
+  }, [books.length, isPaused])
 
   const visibleBooks = books.length > 0
-    ? [0, 1, 2].map((offset) => books[(activeIndex + offset) % books.length])
+    ? Array.from({ length: Math.min(itemsToShow, books.length) }).map((_, offset) => books[(activeIndex + offset) % books.length])
     : []
 
   return (
-    <section id="books" className="w-full px-3 py-6 sm:px-4 md:px-8 md:py-8">
+    <section 
+      id="books" 
+      className="w-full px-3 py-6 sm:px-4 md:px-8 md:py-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       <div className="mb-4 flex items-end justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700 dark:text-amber-400">Preloved Book Shelf</p>
@@ -95,6 +122,8 @@ const Books = () => {
                   className="max-h-48 w-full object-contain"
                   src={book.imgUrl}
                   alt={book.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
