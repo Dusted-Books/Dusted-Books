@@ -219,7 +219,7 @@ function Hero() {
       aria-roledescription="carousel"
       aria-label="Featured book scenes"
     >
-      {/* All slides always mounted — opacity crossfade + optional Ken Burns */}
+      {/* All slides always mounted — opacity crossfade + Ken Burns on desktop */}
       <div className="absolute inset-0" aria-hidden="true">
         {HERO_SLIDES.map((slide, index) => {
           const isActive = index === heroSlide;
@@ -233,14 +233,20 @@ function Hero() {
                 zIndex: isActive ? 1 : 0,
               }}
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+              <img
+                src={slide.src}
+                alt=""
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
                 style={{
-                  backgroundImage: `url(${slide.src})`,
-                  transform: isActive && isMounted ? slide.kenBurns : "scale(1)",
+                  transform:
+                    isActive && isMounted
+                      ? slide.kenBurns
+                      : "scale(1)",
                   transition: isActive
                     ? `transform ${HERO_SLIDE_MS + 400}ms ease-out`
-                    : `transform 0ms 1400ms`,
+                    : "transform 0ms 1400ms",
+                  willChange: isActive ? "transform" : "auto",
                 }}
               />
             </div>
