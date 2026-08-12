@@ -248,3 +248,21 @@ h1, h2, h3 {
     will-change: auto;
   }
 }
+
+/* Mobile: disable expensive GPU effects to prevent scroll jank */
+@media (max-width: 768px) {
+  .hero-kb-0,
+  .hero-kb-1,
+  .hero-kb-2,
+  .hero-kb-3,
+  .hero-kb-4,
+  .hero-kb-5 {
+    animation: none !important;
+    will-change: auto;
+    transform: none !important;
+  }
+  .hero-dust {
+    animation: none !important;
+    display: none;
+  }
+}
