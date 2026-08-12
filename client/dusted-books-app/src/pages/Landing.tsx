@@ -711,10 +711,10 @@ export default function Landing() {
           <div className="mb-8 flex items-end justify-between gap-4 sm:mb-10">
             <div>
               <p className="mb-2 text-[13px] font-medium tracking-[0.12em] text-amber-700/80 uppercase dark:text-amber-400/80">
-                On the shelf
+                Just Arrived
               </p>
               <h2 className="font-serif text-3xl font-medium tracking-tight text-amber-950 dark:text-amber-50 sm:text-4xl">
-                Fresh finds
+                Fresh Pre-Loved Finds
               </h2>
             </div>
             <Link
@@ -727,11 +727,11 @@ export default function Landing() {
           </div>
 
           {booksLoading ? (
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: 3 }).map((_, i) => (
+            <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              {Array.from({ length: 6 }).map((_, i) => (
                 <div
                   key={i}
-                  className="h-72 animate-pulse rounded-lg border border-amber-900/8 bg-amber-100/40 dark:border-gray-700 dark:bg-gray-800"
+                  className="h-80 animate-pulse rounded-lg border border-amber-900/8 bg-amber-100/40 dark:border-gray-700 dark:bg-gray-800"
                 />
               ))}
             </div>
@@ -739,44 +739,39 @@ export default function Landing() {
             <>
               <div
                 ref={booksRef}
-                className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
               >
                 {books.map((book) => (
                   <Link
                     key={book._id}
                     to={`/books/${book._id}`}
-                    className="book-card group overflow-hidden rounded-lg border border-amber-900/10 bg-paper-elevated transition-shadow hover:shadow-md hover:shadow-amber-950/6 dark:border-gray-700 dark:bg-gray-900"
+                    className="book-card group flex flex-col bg-paper-elevated dark:bg-gray-900 transition-all duration-300 p-3 sm:p-4 rounded-xl hover:shadow-xl hover:shadow-amber-950/5 dark:hover:shadow-black/50"
                   >
-                    <div className="relative flex h-48 items-center justify-center bg-stone-100 p-4 dark:bg-gray-800 sm:h-52">
+                    <div className="relative mb-4 w-full aspect-[2/3] flex items-center justify-center">
                       {book.imgUrl ? (
                         <img
                           src={book.imgUrl}
                           alt={book.title}
-                          className="max-h-full max-w-[130px] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                          className="h-full w-full object-cover rounded-sm shadow-[2px_4px_12px_rgba(0,0,0,0.1)] group-hover:shadow-[4px_8px_16px_rgba(0,0,0,0.15)] transition-shadow duration-300"
                           loading="lazy"
                         />
                       ) : (
-                        <BookOpenIcon className="h-12 w-12 text-amber-900/15 dark:text-amber-200/15" />
-                      )}
-                      {book.category?.[0] && (
-                        <span className="absolute left-3 top-3 bg-white/90 px-2 py-0.5 text-[11px] font-medium tracking-wide text-amber-900/70 dark:bg-gray-900/80 dark:text-amber-200/70">
-                          {book.category[0]}
-                        </span>
+                        <div className="h-full w-full bg-stone-100 dark:bg-gray-800 flex items-center justify-center rounded-sm shadow-[2px_4px_12px_rgba(0,0,0,0.1)]">
+                          <BookOpenIcon className="h-10 w-10 text-amber-900/15 dark:text-amber-200/15" />
+                        </div>
                       )}
                     </div>
-                    <div className="border-t border-amber-900/8 p-4 dark:border-gray-700 sm:p-5">
-                      <h3 className="font-serif truncate text-base font-medium text-amber-950 dark:text-amber-50">
+                    <div className="flex flex-col flex-grow text-left">
+                      <h3 className="font-sans font-bold text-[14px] leading-snug text-amber-950 dark:text-amber-50 line-clamp-2">
                         {book.title}
                       </h3>
-                      <p className="mt-1 truncate text-sm text-amber-900/50 dark:text-amber-200/40">
+                      <p className="mt-1 text-[12px] text-amber-900/50 dark:text-amber-200/40 line-clamp-1">
                         {book.author}
                       </p>
-                      <div className="mt-3 flex items-center justify-between">
-                        <span className="text-[15px] font-semibold text-amber-800 dark:text-amber-300">
+
+                      <div className="mt-4 flex items-center justify-between mt-auto">
+                        <span className="text-[15px] font-bold text-amber-950 dark:text-amber-50">
                           Rs. {book.price.toLocaleString("en-IN")}
-                        </span>
-                        <span className="text-xs font-medium text-amber-700/0 transition-colors group-hover:text-amber-700 dark:group-hover:text-amber-400">
-                          View →
                         </span>
                       </div>
                     </div>
@@ -789,7 +784,7 @@ export default function Landing() {
                   to="/browse"
                   className="inline-flex items-center gap-2 rounded-md bg-amber-800 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-amber-700"
                 >
-                  Browse all books
+                  View all books
                   <ArrowRightIcon className="h-4 w-4" />
                 </Link>
               </div>
