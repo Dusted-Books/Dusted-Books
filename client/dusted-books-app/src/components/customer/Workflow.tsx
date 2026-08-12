@@ -1,9 +1,9 @@
 function Workflow() {
   return (
-    <section className="py-16 sm:py-20 relative overflow-hidden">
+    <section className="py-16 sm:py-20 relative overflow-hidden" style={{ contain: "layout style" }}>
       {/* Decorative background blobs */}
-      <div className="absolute top-0 right-0 -mr-20 w-72 h-72 rounded-full bg-amber-200/40 dark:bg-gray-700/30 blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 -ml-20 w-96 h-96 rounded-full bg-amber-100/50 dark:bg-gray-700/30 blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-0 -mr-20 w-72 h-72 rounded-full bg-amber-200/40 dark:bg-gray-700/30 blur-xl sm:blur-2xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 -ml-20 w-96 h-96 rounded-full bg-amber-100/50 dark:bg-gray-700/30 blur-xl sm:blur-2xl pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-8 max-w-6xl relative z-10">
         {/* Step 1 */}
