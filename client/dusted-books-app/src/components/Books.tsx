@@ -139,10 +139,21 @@ const Books = () => {
                 role="button"
                 className="group cursor-pointer rounded-xl border border-amber-900/10 bg-paper-elevated p-2.5 shadow-sm shadow-amber-950/5 transition-all hover:-translate-y-1 hover:border-amber-900/20 hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/20 dark:hover:border-gray-500"
               >
-                <div className="mb-2.5 flex items-center justify-between text-xs px-0.5">
-                  <span className="rounded-md bg-amber-100/80 dark:bg-amber-900/40 px-2 py-0.5 font-medium tracking-wide text-amber-800 dark:text-amber-300">
-                    {book.category?.[0] || "Featured"}
-                  </span>
+                <div className="mb-2.5 flex flex-wrap items-center gap-1.5 text-xs px-0.5">
+                  {book.category && book.category.length > 0 ? (
+                    book.category.slice(0, 2).map((cat) => (
+                      <span
+                        key={cat}
+                        className="rounded-md bg-amber-100/80 dark:bg-amber-900/40 px-2 py-0.5 font-medium tracking-wide text-amber-800 dark:text-amber-300"
+                      >
+                        {cat}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="rounded-md bg-amber-100/80 dark:bg-amber-900/40 px-2 py-0.5 font-medium tracking-wide text-amber-800 dark:text-amber-300">
+                      Featured
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex h-60 w-full items-center justify-center rounded-lg bg-paper-muted dark:bg-gray-700/50 p-3 transition-colors group-hover:bg-amber-50 dark:group-hover:bg-gray-700/80">
