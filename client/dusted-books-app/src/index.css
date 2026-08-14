@@ -1,111 +1,268 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import "tailwindcss";
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@variant dark (&:where(.dark, .dark *));
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ═══════════════════════════════════════════════════════════════════════════
+   DustedBooks — white & red gradient palette
+   Clean white · soft rose · rich crimson · deep wine
+   Warm, inviting, and book-reader-friendly.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@theme {
+  /* Typography */
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-serif: "Lora", ui-serif, Georgia, "Times New Roman", serif;
+  --font-display: "Lora", ui-serif, Georgia, "Times New Roman", serif;
+  --font-cursive: "Caveat", cursive;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* ── Semantic surfaces ── */
+  --color-paper: #FAFAFA;           /* page / app canvas — warm white */
+  --color-paper-elevated: #FFFFFF;  /* cards on paper — pure white */
+  --color-paper-muted: #F5ECED;     /* muted wells / image placeholders — soft rose */
+  --color-ink: #2D1A1E;             /* primary text — wine-black */
+  --color-shelf: #2D1A1E;           /* dark CTA panels — deep wine */
+  --color-shelf-deep: #1A1214;      /* deepest overlays — near-black wine */
+  --color-brass: #C75B5B;           /* highlight accent — crimson */
+  --color-leather: #8B2D2D;         /* primary brand mid — deep wine-red */
+
+  /* ── Amber remapped → crimson / rose / red ──
+     Existing amber-* utilities keep working; hue shifts from warm amber
+     to a white-and-red bookstore palette. */
+  --color-amber-50: #FEF5F5;
+  --color-amber-100: #FCE8E8;
+  --color-amber-200: #F5CDCD;
+  --color-amber-300: #E8A3A3;
+  --color-amber-400: #D97777;
+  --color-amber-500: #C75B5B;
+  --color-amber-600: #A83A3A;
+  --color-amber-700: #8B2D2D;
+  --color-amber-800: #6E2222;
+  --color-amber-900: #521A1A;
+  --color-amber-950: #2D0A0A;
+
+  /* ── Orange remapped → soft coral / rose (hero dust / gradients) ── */
+  --color-orange-50: #FFF5F3;
+  --color-orange-100: #FCE8E4;
+  --color-orange-200: #F5CCC5;
+  --color-orange-300: #E8A89E;
+  --color-orange-400: #D9847A;
+  --color-orange-500: #C7635A;
+  --color-orange-600: #A84540;
+  --color-orange-700: #8B3632;
+  --color-orange-800: #6E2A27;
+  --color-orange-900: #521F1D;
+  --color-orange-950: #2D0F0E;
+
+  /* ── Gray remapped → warm rose-charcoal (dark mode) ── */
+  --color-gray-50: #FAF8F8;
+  --color-gray-100: #F2EEEF;
+  --color-gray-200: #E4DEDE;
+  --color-gray-300: #CDC4C6;
+  --color-gray-400: #A89A9C;
+  --color-gray-500: #7D7072;
+  --color-gray-600: #5C5153;
+  --color-gray-700: #453C3E;
+  --color-gray-800: #2F282A;
+  --color-gray-900: #1F1A1B;
+  --color-gray-950: #141012;
+
+  /* ── Stone → rose-tinged warm stone (CTA text) ── */
+  --color-stone-50: #FAF8F7;
+  --color-stone-100: #F3EDEC;
+  --color-stone-200: #E5DADA;
+  --color-stone-300: #D0C0C0;
+  --color-stone-400: #A89090;
+  --color-stone-500: #7D6868;
+  --color-stone-600: #5C4C4C;
+  --color-stone-700: #463A3A;
+  --color-stone-800: #302828;
+  --color-stone-900: #221C1C;
+  --color-stone-950: #140F0F;
+
+  /* ── Olive → muted rose-sage (admin sidebar) ── */
+  --color-olive-50: #F5F2F2;
+  --color-olive-100: #E8E2E3;
+  --color-olive-200: #D4CCCD;
+  --color-olive-300: #C0B5B6;
+  --color-olive-400: #A39596;
+  --color-olive-500: #8A7D7E;
+  --color-olive-600: #6F6364;
+  --color-olive-700: #584E4F;
+  --color-olive-800: #463E3F;
+  --color-olive-900: #3A3233;
+  --color-olive-950: #1F1A1B;
+
+  /* ── Slate → rose-tinted slate (book card borders) ── */
+  --color-slate-50: #F8F5F6;
+  --color-slate-100: #F0EAEB;
+  --color-slate-200: #DDD4D6;
+  --color-slate-300: #C2B4B7;
+  --color-slate-400: #9A898C;
+  --color-slate-500: #766668;
+  --color-slate-600: #5A4D4F;
+  --color-slate-700: #483E40;
+  --color-slate-800: #3B3234;
+  --color-slate-900: #2F282A;
+  --color-slate-950: #1A1516;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+/* ── Base layout ── */
+html, body, #root {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+html.dark body {
+  background-color: var(--color-gray-950);
+  color: var(--color-amber-100);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+/* Literary serif for headings — classic bookstore feel */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* Brand wordmark utility — use on logo text */
+.font-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+/* Soft selection — crimson on white */
+::selection {
+  background-color: color-mix(in srgb, var(--color-amber-800) 85%, transparent);
+  color: #fff;
+}
+
+/* ── Customer Hero slideshow ── */
+@keyframes hero-kb-0 {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.15) translate3d(2%, -1%, 0); }
+}
+@keyframes hero-kb-1 {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(-2%, -1%, 0); }
+}
+@keyframes hero-kb-2 {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.1) translate3d(-1%, -2%, 0); }
+}
+@keyframes hero-kb-3 {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(-2%, 1%, 0); }
+}
+@keyframes hero-kb-4 {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.14) translate3d(1%, 2%, 0); }
+}
+@keyframes hero-kb-5 {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(1%, -1%, 0); }
+}
+
+.hero-kb-0,
+.hero-kb-1,
+.hero-kb-2,
+.hero-kb-3,
+.hero-kb-4,
+.hero-kb-5 {
+  will-change: transform;
+  backface-visibility: hidden;
+  /* Match HERO_SLIDE_MS (4500) + a little overrun so zoom never freezes mid-slide */
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.hero-kb-0 { animation-name: hero-kb-0; }
+.hero-kb-1 { animation-name: hero-kb-1; }
+.hero-kb-2 { animation-name: hero-kb-2; }
+.hero-kb-3 { animation-name: hero-kb-3; }
+.hero-kb-4 { animation-name: hero-kb-4; }
+.hero-kb-5 { animation-name: hero-kb-5; }
+
+@keyframes hero-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.hero-progress-fill {
+  transform-origin: left center;
+  animation: hero-progress var(--hero-slide-ms, 6500ms) linear forwards;
+}
+
+@keyframes hero-dust {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50%      { opacity: 0.7;  transform: translateY(-6px); }
+}
+
+.hero-dust {
+  animation: hero-dust 3.2s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-cue {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50%      { transform: translateY(4px); opacity: 1; }
+}
+
+.hero-scroll-cue {
+  animation: hero-scroll-cue 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kb-0,
+  .hero-kb-1,
+  .hero-kb-2,
+  .hero-kb-3,
+  .hero-kb-4,
+  .hero-kb-5,
+  .hero-progress-fill,
+  .hero-dust,
+  .hero-scroll-cue {
+    animation: none !important;
+    will-change: auto;
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+/* Mobile: disable expensive GPU effects to prevent scroll jank */
+@media (max-width: 768px) {
+  .hero-kb-0,
+  .hero-kb-1,
+  .hero-kb-2,
+  .hero-kb-3,
+  .hero-kb-4,
+  .hero-kb-5 {
+    animation: none !important;
+    will-change: auto;
+    transform: none !important;
   }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  .hero-dust {
+    animation: none !important;
+    display: none;
+  }
 }
