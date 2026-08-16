@@ -22,8 +22,29 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ["admin", "customer"],
         default: "customer"
+    },
+
+    isEmailVerified: {
+        type: Boolean,
+        default: false
+    },
+
+    emailVerificationToken: {
+        type: String
+    },
+
+    emailVerificationExpires: {
+        type: Date
+    },
+
+    lastVerifiedToken: {
+        type: String
+    },
+
+    lastVerifiedAt: {
+        type: Date
     }
 
-}, { collection: "users" });    
+}, { collection: "users" });
 
 module.exports = mongoose.model("User", userSchema);

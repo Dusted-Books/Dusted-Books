@@ -12,6 +12,7 @@ import AdminRoute from "./routes/adminRoutes";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Unauthorized from "./pages/Unauthorized";
+import VerifyEmail from "./pages/VerifyEmail";
 
 // Code-split the heavier pages so they load on demand
 const Home = lazy(() => import("./pages/CustomerLayout/Home"));
@@ -81,6 +82,8 @@ function App() {
                     </GuestRoute>
                   }
                 />
+
+                <Route path="/verify-email" element={<VerifyEmail />} />
 
                 <Route path="/" element={<RootRoute />} />
 

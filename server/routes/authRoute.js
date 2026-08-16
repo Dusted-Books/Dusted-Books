@@ -13,5 +13,7 @@ router.get("/me", protect, (req, res) => {
 });
 
 router.post("/users/logout", userController.logoutUser);
+router.get("/verify-email", userController.verifyEmail);
+router.post("/resend-verification", userController.resendVerificationEmail);
 
 module.exports = router;
